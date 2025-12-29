@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aranmula Heritage | Pathanamthitta Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .details-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.7;
+        }
+        .heritage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .info-box {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            border-top: 5px solid #b8860b; /* Gold/Heritage theme */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .highlight { color: #b8860b; font-weight: bold; }
+        .section-title { border-bottom: 2px solid #b8860b; display: inline-block; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Visit PTA</div>
+        <a href="index.html" style="color:white; text-decoration:none;">← Back to Home</a>
+    </nav>
+
+    <header class="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://www.dtpcpathanamthitta.com/uploads/picture_gallery/gallery_images/aranmula-parthasarathy-temple-pathanamthitta-8-20230508161631579071.webp'); background-size: cover; color: white;">
+        <h1>Aranmula Heritage Village</h1>
+        <p>A Global Heritage Site on the Banks of River Pamba</p>
+    </header>
+
+    <div class="details-container">
+        <section>
+            <h2 class="section-title">The Soul of Pathanamthitta</h2>
+            <p>Aranmula is a traditional village in Pathanamthitta district, world-renowned for its vast cultural contributions. It is one of the few places in India where the ancient traditions of craft and ritual are still practiced in their original form. From the mystical metal mirrors to the rhythmic snake boat races, Aranmula is a living museum.</p>
+        </section>
+
+        
+
+        <div class="heritage-grid">
+            <div class="info-box">
+                <h3>🪞 Aranmula Kannadi</h3>
+                <p>The <span class="highlight">Aranmula Kannadi</span> is a unique metal-alloy mirror. Unlike glass mirrors, the reflection comes from the front surface, eliminating distortion. Its composition remains a closely guarded family secret passed down through generations.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>🚣 Uthrattathi Vallamkali</h3>
+                <p>The famous <span class="highlight">Snake Boat Race</span> is held during the Onam season. These "Palliyodams" (divine vessels) are rowed to the rhythmic songs (Vanchipattu) by hundreds of oarsmen in a display of communal harmony.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Temple & Valla Sadya</h3>
+                <p>The ancient **Parthasarathy Temple** is the heart of the village. It is famous for the <span class="highlight">Valla Sadya</span>, a grand ritualistic feast offered to the oarsmen of the snake boats, featuring over 60 traditional dishes.</p>
+            </div>
+        </div>
+
+        <section class="map-section">
+            <h2 class="section-title">Visit Aranmula</h2>
+            <div id="map" style="height: 350px; border-radius: 15px; margin-top: 20px;"></div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize Map at Aranmula Coordinates
+        const map = L.map('map').setView([9.3315, 76.6791], 14);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        L.marker([9.3315, 76.6791]).addTo(map)
+            .bindPopup('<b>Aranmula Parthasarathy Temple</b><br>Heritage Village Center.')
+            .openPopup();
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orakkanpara Hidden Falls | Pathanamthitta Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .details-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.7;
+        }
+        .hidden-gem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .info-box {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #9c27b0; /* Purple/Hidden theme */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .highlight { color: #9c27b0; font-weight: bold; }
+        .alert-box {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Visit PTA</div>
+        <a href="index.html" style="color:white; text-decoration:none;">← Back to Home</a>
+    </nav>
+
+    <header class="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.ytimg.com/vi/NwHiqDTjJFA/maxresdefault.jpg'); background-size: cover; color: white;">
+        <h1>Orakkanpara Waterfall</h1>
+        <p>The Secret Cascade of Mallappally</p>
+    </header>
+
+    <div class="details-container">
+        <section>
+            <h2>A Secluded Retreat</h2>
+            <p>Located near Mallappally in Pathanamthitta, **Orakkanpara** is a mesmerizing waterfall that remains largely untouched by mainstream tourism. It is a favorite among locals for its calm atmosphere and the natural rock formations that create a beautiful multi-tiered water flow during the monsoon season.</p>
+        </section>
+
+        
+
+        <div class="hidden-gem-grid">
+            <div class="info-box">
+                <h3>🌊 The Experience</h3>
+                <p>Orakkanpara is not a commercialized site. Visitors can enjoy a <span class="highlight">peaceful trek</span> through rubber plantations to reach the falls. It is perfect for those looking to escape the crowds and enjoy the raw sounds of nature.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>📅 Best Time to Visit</h3>
+                <p>The falls are at their majestic best during the <span class="highlight">Monsoon (June to September)</span> and early winter. During peak summer, the water flow may significantly reduce, revealing unique rock carvings and caves.</p>
+            </div>
+        </div>
+
+        <div class="alert-box">
+            <strong>⚠️ Safety Note:</strong> The rocks here can be extremely slippery, especially during rains. There are no lifeguards on duty, so please exercise caution near the water edges.
+        </div>
+
+        <section class="map-section">
+            <h2>Location & Directions</h2>
+            <p>Orakkanpara is situated about 10 km from Mallappally and 25 km from Pathanamthitta town.</p>
+            <div id="map" style="height: 350px; border-radius: 15px; margin-top: 20px;"></div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize Map at Orakkanpara Coordinates
+        const map = L.map('map').setView([9.4167, 76.7167], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        L.marker([9.4167, 76.7167]).addTo(map)
+            .bindPopup('<b>Orakkanpara Waterfall</b><br>Nature\'s hidden treasure.')
+            .openPopup();
+    </script>
+</body>
+</html>

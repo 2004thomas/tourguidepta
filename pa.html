@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandalam Valiyakoikkal Temple | Pathanamthitta Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root {
+            --primary: #5d4037; /* Royal Wood/Palace Brown */
+            --accent: #ff6f00; /* Bright Amber for the Sacred Ornaments */
+            --card-bg: #ffffff;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #fffaf0; }
+        nav { background: var(--primary); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .details-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .hero {
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://media-cdn.tripadvisor.com/media/photo-s/0c/4c/27/d0/valiya-koyikkal-temple.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .info-box {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent);
+        }
+        .highlight { color: var(--accent); font-weight: bold; }
+        .royal-box {
+            background: #efebe9;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 1px solid #d7ccc8;
+        }
+        h2 { border-bottom: 2px solid var(--accent); padding-bottom: 10px; display: inline-block; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo" style="color:white; font-weight:bold; font-size:1.5rem;">Visit PTA</div>
+        <a href="index.html" style="color:white; text-decoration:none;">← Back to Home</a>
+    </nav>
+
+    <header class="hero">
+        <h1>Pandalam Valiyakoikkal Temple</h1>
+        <p>The Childhood Home of Lord Ayyappa & The Palace Shrine</p>
+    </header>
+
+    <div class="details-container">
+        <section class="about-section">
+            <h2>The Royal Connection</h2>
+            <p>The **Valiyakoikkal Temple** is situated within the Pandalam Palace complex on the banks of the Achankovil River. It is the family temple of the Pandalam Royal House, who adopted Lord Ayyappa (Manikandan) as their son. The temple is modeled after the Sabarimala shrine but is accessible to all devotees throughout the year.</p>
+            <p>Every year, three days before the Makaravilakku festival, the **Thiruvabharanam Procession** starts from here, carrying the sacred gold ornaments to Sabarimala in a grand trek.</p>
+        </section>
+
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>👑 Key Features</h3>
+                <ul>
+                    <li><span class="highlight">Thiruvabharanam:</span> The sacred jewels are kept at the Srampickal Palace (part of the complex) and shown to devotees during the season.</li>
+                    <li><span class="highlight">No Bell:</span> Uniquely, this temple has no temple bell, as it is believed the "child" Manikandan is sleeping nearby.</li>
+                    <li><span class="highlight">The Palace:</span> Visitors can see parts of the traditional Kerala palace architecture.</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>🗓️ Important Dates</h3>
+                <ul>
+                    <li><span class="highlight">January 12-14:</span> The departure of the Thiruvabharanam procession is the most crowded and spiritual time.</li>
+                    <li><span class="highlight">Mandala Season:</span> A major stop-over for pilgrims travelling from all over India.</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>📍 Visitor Guide</h3>
+                <p><strong>Location:</strong> In Pandalam town, right on the MC Road (Main Central Road).</p>
+                <p><strong>Nearby:</strong> 15 km from Chengannur Railway Station.</p>
+                <p><strong>Riverside:</strong> Devotees often take a holy dip in the Achankovil River flowing adjacent to the temple.</p>
+            </div>
+        </div>
+
+        <section class="royal-box">
+            <h3>Did you know?</h3>
+            <p>Unlike Sabarimala, women of all ages are allowed to worship at the Valiyakoikkal Temple. It is considered the "Home" of the deity, whereas Sabarimala is his place of "Penance" (Yoga).</p>
+        </section>
+
+        <section class="map-section">
+            <h2>Location Map</h2>
+            <div id="map" style="height: 350px; border-radius: 15px; margin-top: 20px;"></div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Pandalam Temple Coordinates
+        const map = L.map('map').setView([9.2295, 76.6710], 15);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        L.marker([9.2295, 76.6710]).addTo(map)
+            .bindPopup('<b>Pandalam Valiyakoikkal Temple</b><br>Home of the Sacred Ornaments.')
+            .openPopup();
+    </script>
+</body>
+</html>

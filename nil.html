@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilakkal Mahadeva Temple | Pathanamthitta Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root {
+            --primary: #4e342e; /* Deep Earthy Brown */
+            --accent: #bf360c; /* Vermillion/Temple Red */
+            --card-bg: #ffffff;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #fcf9f2; }
+        nav { background: var(--primary); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .details-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .hero {
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://www.keralatourism.org/uploads/sabarimala/desktop/nilakkal-sree-mahadeva-temple-20241007152801593750.webp');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .info-box {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--accent);
+        }
+        .highlight { color: var(--accent); font-weight: bold; }
+        .basecamp-box {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border: 1px solid #ffe0b2;
+        }
+        h2 { border-bottom: 2px solid var(--accent); padding-bottom: 10px; display: inline-block; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo" style="color:white; font-weight:bold; font-size:1.5rem;">Visit PTA</div>
+        <a href="index.html" style="color:white; text-decoration:none;">← Back to Home</a>
+    </nav>
+
+    <header class="hero">
+        <h1>Nilakkal Mahadeva Temple</h1>
+        <p>The Guardian Deity of the Sabarimala Wilderness</p>
+    </header>
+
+    <div class="details-container">
+        <section class="about-section">
+            <h2>The Gateway Temple</h2>
+            <p>The **Nilakkal Mahadeva Temple** is an ancient shrine situated in the dense forests of the Ranni reserve forest. Lord Shiva is the presiding deity here, worshipped in two forms: a fierce "Ugra" form and a benevolent "Saumya" form. It is believed that Lord Ayyappa himself stopped here to pay respects to his father, Lord Shiva, before his journey to Sannidhanam.</p>
+            <p>During the Sabarimala pilgrimage season, Nilakkal transforms into the most important transit point where millions of devotees park their vehicles and prepare for the final trek from Pamba.</p>
+        </section>
+
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>🕉️ Significance</h3>
+                <ul>
+                    <li><span class="highlight">Ayyappa Connection:</span> It is one of the "Idathavalam" (halt points) for the sacred Thiruvabharanam procession.</li>
+                    <li><span class="highlight">Ecumenical History:</span> Nilakkal is also historically significant for being an ancient trade route connecting Kerala and Tamil Nadu.</li>
+                    <li><span class="highlight">Shiva & Vishnu:</span> The temple complex houses a shrine for Lord Vishnu as well, symbolizing the "Hari-Hara" union.</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>🚗 Pilgrim Logistics</h3>
+                <ul>
+                    <li><span class="highlight">Parking Hub:</span> All private vehicles, including cars and buses, must be parked at Nilakkal.</li>
+                    <li><span class="highlight">Chain Service:</span> KSRTC operates frequent "Chain Service" buses from Nilakkal to Pamba (18 km).</li>
+                    <li><span class="highlight">Amenities:</span> Extensive facilities for resting, bathing, and food (Annadhanam) are provided during the season.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="basecamp-box">
+            <h3>📍 Important for Pilgrims</h3>
+            <p>Nilakkal is the <strong>last point</strong> for private vehicle access. If you are traveling to Sabarimala, ensure you reach the parking grounds here. The temple remains open throughout the year, unlike the main Sabarimala temple, offering a peaceful forest atmosphere during the off-season.</p>
+        </div>
+
+        <section class="map-section">
+            <h2>Location Map</h2>
+            <div id="map" style="height: 350px; border-radius: 15px; margin-top: 20px;"></div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Nilakkal Temple Coordinates
+        const map = L.map('map').setView([9.3978, 76.9922], 13);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        L.marker([9.3978, 76.9922]).addTo(map)
+            .bindPopup('<b>Nilakkal Mahadeva Temple</b><br>Primary Base Camp for Sabarimala.')
+            .openPopup();
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuttippara | Pathanamthitta's Sacred Summit</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root {
+            --primary: #5d4037; /* Rock Brown */
+            --accent: #f57c00; /* Sunset Orange */
+            --card-bg: #ffffff;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #fcfaf9; }
+        nav { background: var(--primary); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .details-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .hero {
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://tripinic.com/wp-content/uploads/2023/05/Chuttippara-View-Point.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .info-box {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border-bottom: 4px solid var(--accent);
+        }
+        .highlight { color: var(--accent); font-weight: bold; }
+        .legend-section {
+            background: #efebe9;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        h2 { border-bottom: 2px solid var(--accent); padding-bottom: 5px; display: inline-block; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo" style="color:white; font-weight:bold; font-size:1.5rem;">Visit PTA</div>
+        <a href="index.html" style="color:white; text-decoration:none;">← Back to Home</a>
+    </nav>
+
+    <header class="hero">
+        <h1>Chuttippara Hill</h1>
+        <p>Panoramic Views & Ramayana Legends in the Town's Heart</p>
+    </header>
+
+    <div class="details-container">
+        <section class="about-section">
+            <h2>The Giant Rock Formation</h2>
+            <p>Rising 200 feet above the landscape, **Chuttippara** is the best vantage point to see Pathanamthitta town. Atop the hill sits the ancient **Harihara Mahadeva Temple**, dedicated to Lord Shiva, which is believed to have been a site where Lord Rama himself offered worship.</p>
+        </section>
+
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>🏔️ The Three Hills</h3>
+                <ul>
+                    <li><span class="highlight">Chelavirichapara:</span> Named after the spot where Goddess Sita "spread her clothes" (Chela) to dry.</li>
+                    <li><span class="highlight">Kattadipara:</span> A windy hill associated with Lord Hanuman, the son of the wind god Vayu.</li>
+                    <li><span class="highlight">Pulipara:</span> Features a natural cave (guha) that reportedly served as a shelter for Rama and Sita.</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>🚗 Visitor Info</h3>
+                <p><strong>Location:</strong> Just 1.2 km from Pathanamthitta KSRTC Bus Station.</p>
+                <p><strong>Timing:</strong> Best visited at 6:00 AM for sunrise or 5:30 PM for sunset.</p>
+                <p><strong>Entry:</strong> Free. Accessible via a series of stone steps built into the rock.</p>
+            </div>
+        </div>
+
+        <section class="legend-section">
+            <h3>Spiritual Significance</h3>
+            <p>The **Harihara Mahadeva Temple** is a rare sanctuary where the legends of Shiva and Rama intertwine. Every evening, the hill offers a cool breeze and a quiet atmosphere for meditation, despite its proximity to the busy town center.</p>
+        </section>
+
+        <section class="map-section">
+            <h2>Location Map</h2>
+            <div id="map" style="height: 350px; border-radius: 15px; margin-top: 20px;"></div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Chuttippara Coordinates
+        const map = L.map('map').setView([9.2647, 76.7932], 15);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        L.marker([9.2647, 76.7932]).addTo(map)
+            .bindPopup('<b>Chuttippara Hill</b><br>Harihara Mahadeva Temple & Viewpoint.')
+            .openPopup();
+    </script>
+</body>
+</html>
